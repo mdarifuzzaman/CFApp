@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CFApp/static/css/main.508cd231.chunk.css",
-    "main.js": "/CFApp/static/js/main.5b90dc14.chunk.js",
-    "main.js.map": "/CFApp/static/js/main.5b90dc14.chunk.js.map",
+    "main.js": "/CFApp/static/js/main.78f76121.chunk.js",
+    "main.js.map": "/CFApp/static/js/main.78f76121.chunk.js.map",
     "runtime-main.js": "/CFApp/static/js/runtime-main.f80eba64.js",
     "runtime-main.js.map": "/CFApp/static/js/runtime-main.f80eba64.js.map",
     "static/css/2.510409cd.chunk.css": "/CFApp/static/css/2.510409cd.chunk.css",
     "static/js/2.f199d4dd.chunk.js": "/CFApp/static/js/2.f199d4dd.chunk.js",
     "static/js/2.f199d4dd.chunk.js.map": "/CFApp/static/js/2.f199d4dd.chunk.js.map",
     "index.html": "/CFApp/index.html",
-    "precache-manifest.e204de7adbe0884fcc27e2e2ee6d8222.js": "/CFApp/precache-manifest.e204de7adbe0884fcc27e2e2ee6d8222.js",
+    "precache-manifest.e1c47b4bbbed89f63e54152d4caa11e2.js": "/CFApp/precache-manifest.e1c47b4bbbed89f63e54152d4caa11e2.js",
     "service-worker.js": "/CFApp/service-worker.js",
     "static/css/2.510409cd.chunk.css.map": "/CFApp/static/css/2.510409cd.chunk.css.map",
     "static/css/main.508cd231.chunk.css.map": "/CFApp/static/css/main.508cd231.chunk.css.map"
