@@ -52,13 +52,13 @@ export default class ListCFItems extends Component {
 
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <span className="apt-notes">Net Weight: </span>
-                        <span className="apt-notes" contentEditable suppressContentEditableWarning onBlur={e => this.props.updateInfo('netWeight', e.target.innerText, item.netWeight)}>                            
+                        <span className="apt-notes" contentEditable suppressContentEditableWarning onBlur={e => this.props.updateInfo('netWeight', e.target.innerText, item.id)}>                            
                             {item.netWeight}
                         </span>
 
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <span className="apt-notes">Gross Weight: </span>
-                        <span className="apt-notes" contentEditable suppressContentEditableWarning onBlur={e => this.props.updateInfo('grossWeight', e.target.innerText, item.netWeight)}>                            
+                        <span className="apt-notes" contentEditable suppressContentEditableWarning onBlur={e => this.props.updateInfo('grossWeight', e.target.innerText, item.id)}>                            
                             {item.grossWeight}
                         </span>
 

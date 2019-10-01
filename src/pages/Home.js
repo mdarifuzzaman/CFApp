@@ -88,7 +88,8 @@ export default class Home extends Component {
   
       localStorage.setItem('cf-items', JSON.stringify(tempItems2));
       this.setState({
-        items: tempItems2
+        items: tempItems2,
+        formDisplay: true
       });
     }
   

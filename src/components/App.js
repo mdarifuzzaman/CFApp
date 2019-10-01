@@ -20,8 +20,8 @@ class App extends Component {
             <div className="col-md-12 bg-white">
               <div className="container">                    
               <Switch>      
-                  <Route exact path='/' component={Home}></Route>
-                  <Route exact path='/report' component={Report}></Route>                     
+                  <Route exact path='/CFApp' component={Home}></Route>
+                  <Route exact path='/CFApp/report' component={Report}></Route>                     
                   <Route component={Error}></Route> 
               </Switch>                            
               </div>  

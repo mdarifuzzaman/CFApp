@@ -5,7 +5,7 @@ export default function Error() {
     return (
         <div>
             <h1>An error has occured</h1>
-            <Link to="/">
+            <Link to="/CFApp">
                 Return Home
             </Link>
         </div>
