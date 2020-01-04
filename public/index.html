@@ -1,37 +1,1107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="logo192.png" />
-    
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <header class="container text-white">
-      <h4 class="py-2">Clearing and Forwading Agents Activities
-        <div style="float: right">
-            <a href="/CFApp">Home</a> &nbsp;&nbsp;
-            <a href="/CFApp/report">Report</a>
-        </div>
-        
-      </h4>      
-    </header>
-    <div id="root"></div>
 
-    <footer class="container d-flex text-white py-2">
-      <p>
-        All contents &copy; 2018
-        <a href=""></a>. For any queries: arif_uap@outlook.com
-      </p>      
-    </footer>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="logo192.png" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/horizon.css" />
+  <script type="text/javascript" src="%PUBLIC_URL%/editor.js"></script>
+  <link rel="stylesheet" href="%PUBLIC_URL%/horizon-3.css" />
+
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Case Management System</title>
+
+  <style ng-transition="hrz">
+    ng-spd-split-pane[_ngcontent-sc1] {
+      background-color: #f7f7f7;
+      border-right: 1px solid #969696;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    ng-spd-split-pane[_ngcontent-sc1]:before {
+      background: linear-gradient(to right, transparent, rgba(43, 43, 43, 0.125));
+      content: '';
+      height: calc(100% - 51px);
+      pointer-events: none;
+      position: absolute;
+      top: 51px;
+      width: 13px;
+      z-index: 2;
+      right: 0;
+    }
+
+    app-left-hand-side[_ngcontent-sc1] {
+      flex-grow: 1;
+    }
+
+    button[class^='toggle-lhs'][_ngcontent-sc1],
+    button[class^='toggle-rhs'][_ngcontent-sc1] {
+      transition: none;
+    }
+
+    .rotate[_ngcontent-sc1] {
+      transform: rotate(180deg);
+    }
+
+    [_nghost-sc1] .top-bar-right {
+      align-items: center;
+    }
+
+    [_nghost-sc1] .header-right {
+      align-items: center;
+    }
+
+    [_nghost-sc1] .header-right .profile-button {
+      margin-right: 10px;
+    }
+
+    .page-header-divider[_ngcontent-sc1] {
+      border-left: 1px solid #969696;
+      height: 100%;
+      margin: 0 10px;
+    }
+
+    .page-header-padding[_ngcontent-sc1] {
+      margin-left: 10px;
+    }
+
+    .router-animation-wrapper[_ngcontent-sc1] {
+      background-color: #f7f7f7;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .toggle-lhs-hide[_ngcontent-sc1],
+    .toggle-rhs-hide[_ngcontent-sc1] {
+      display: none;
+    }
+
+    @media (min-width: 1200px) {
+      .toggle-lhs-hide[_ngcontent-sc1] {
+        display: block;
+      }
+
+      .toggle-lhs-show[_ngcontent-sc1] {
+        display: none;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .toggle-rhs-hide[_ngcontent-sc1] {
+        display: block;
+      }
+
+      .toggle-rhs-show[_ngcontent-sc1] {
+        display: none;
+      }
+    }
+
+    ng-spd-top-bar[_ngcontent-sc1] {
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #969696;
+      z-index: auto;
+    }
+
+    ng-spd-top-bar[_ngcontent-sc1] .divider[_ngcontent-sc1] {
+      background-color: #969696;
+      height: 50px;
+      width: 1px;
+    }
+
+    ng-spd-page-pane[_ngcontent-sc1] {
+      background-color: #f7f7f7;
+      border-left: 1px solid #969696;
+      position: relative;
+      z-index: 2;
+    }
+
+    ng-spd-page-pane.collapse[_ngcontent-sc1] {
+      width: 0;
+      visibility: hidden;
+    }
+
+    ng-spd-page-pane[_ngcontent-sc1]:before {
+      background: linear-gradient(to left, transparent, rgba(43, 43, 43, 0.125));
+      content: '';
+      height: calc(100% - 51px);
+      pointer-events: none;
+      position: absolute;
+      top: 51px;
+      width: 13px;
+      z-index: 2;
+      left: 0;
+    }
+
+    ng-spd-page-header[_ngcontent-sc1] {
+      background-color: #e3e3e3;
+      border-bottom: 1px solid #969696;
+      z-index: 4;
+    }
+
+    ng-spd-page-header[_ngcontent-sc1] nav[_ngcontent-sc1] {
+      display: flex;
+    }
+
+    .page-navigation-button[_ngcontent-sc1] {
+      font-weight: 600;
+      font-size: 1rem;
+      align-items: center;
+      background: transparent;
+      border: 0;
+      border-bottom: 5px solid transparent;
+      color: #969696;
+      display: flex;
+      font-family: "Open Sans", sans-serif;
+      height: 40px;
+      justify-content: center;
+      padding: 0 30px;
+      text-decoration: none;
+    }
+
+    .page-navigation-button.active[_ngcontent-sc1] {
+      border-bottom-color: #171D52;
+      color: #171D52;
+    }
+
+    .button-header-margin[_ngcontent-sc1] {
+      margin-left: 1px;
+    }
+
+    ng-spd-page[_ngcontent-sc1]:not(.desktop) .lhs[_ngcontent-sc1]:before,
+    ng-spd-page[_ngcontent-sc1]:not(.desktop) ng-spd-page-pane[_ngcontent-sc1]:before {
+      width: 0;
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc2] {
+      display: flex;
+      flex-direction: column;
+      height: 100%
+    }
+
+    .page-app[_ngcontent-sc2] {
+      display: flex;
+      flex-grow: 1;
+      overflow: hidden
+    }
+
+    .page-main[_ngcontent-sc2] {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc3] {
+      background-color: #171d52;
+      flex-shrink: 0;
+      height: 40px;
+      transition: height .25s ease-in-out;
+      width: 100%
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc4] {
+      color: #fff;
+      height: 100%;
+      justify-content: space-between
+    }
+
+    .header-left[_ngcontent-sc4],
+    .header-right[_ngcontent-sc4],
+    [_nghost-sc4] {
+      display: flex
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc7] {
+      border-radius: 0;
+      display: inline-block;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      margin: 0;
+      text-transform: none;
+      background-color: #171d52;
+      border-style: none;
+      color: #fff;
+      height: 40px;
+      padding: 0;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      width: 80px
+    }
+
+    [_nghost-sc7]:not(:focus):not(:hover):not(:active) .wrapper[_ngcontent-sc7] {
+      height: 100% !important
+    }
+
+    [_nghost-sc7]:not(:hover):not(:active):focus .wrapper[_ngcontent-sc7] {
+      box-shadow: inset 0 0 0 2px #19a5a2
+    }
+
+    [_nghost-sc7]:active,
+    [_nghost-sc7]:focus,
+    [_nghost-sc7]:hover {
+      outline: 0;
+      z-index: 1
+    }
+
+    [_nghost-sc7]:active .label[_ngcontent-sc7],
+    [_nghost-sc7]:focus .label[_ngcontent-sc7],
+    [_nghost-sc7]:hover .label[_ngcontent-sc7] {
+      transition: none;
+      visibility: visible
+    }
+
+    [_nghost-sc7]:hover {
+      background-color: #19a5a2
+    }
+
+    [_nghost-sc7]:active {
+      background-color: #171d52
+    }
+
+    .wrapper[_ngcontent-sc7] {
+      background-color: inherit;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 8px;
+      position: absolute;
+      top: 0;
+      transition-property: height, background-color, box-shadow;
+      transition-duration: 125ms;
+      transition-timing-function: ease-in-out;
+      width: 100%
+    }
+
+    .label[_ngcontent-sc7] {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 14px;
+      padding-top: 4px;
+      transition-property: visibility;
+      transition-duration: 0s;
+      transition-delay: 125ms;
+      visibility: hidden
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc8] {
+      transition: width .25s ease-in-out;
+      position: relative;
+      overflow-x: auto
+    }
+
+    @media (min-width:1200px) {
+      .hide[_nghost-sc8] {
+        transition: width .25s ease-in-out, visibility .25s linear;
+        visibility: hidden;
+        width: 0 !important
+      }
+    }
+
+    @media (max-width:1199px) {
+      [_nghost-sc8]:not(.show) {
+        transition: width .25s ease-in-out, visibility .25s linear;
+        visibility: hidden;
+        width: 0 !important
+      }
+    }
+
+    .dragging[_nghost-sc8] {
+      transition: width !important
+    }
+
+    .pane-divider[_ngcontent-sc8] {
+      cursor: w-resize;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 6px
+    }
+
+    .overlay[_ngcontent-sc8] {
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 1
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc9] {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header[_ngcontent-sc9] {
+      align-items: center;
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #969696;
+      color: #11163e;
+      display: flex;
+      flex: 0 0 50px;
+      font-weight: 600;
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 5px;
+    }
+
+    .content[_ngcontent-sc9] {
+      flex: 1;
+      overflow: auto;
+    }
+
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc10] {
+      align-items: center;
+      display: flex;
+      flex: 0 0 50px;
+      justify-content: space-between;
+      z-index: 1
+    }
+
+    .top-bar-left[_ngcontent-sc10],
+    .top-bar-right[_ngcontent-sc10] {
+      flex-basis: 50%
+    }
+
+    .top-bar-right[_ngcontent-sc10] {
+      display: flex;
+      justify-content: flex-end
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc11] {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      height: 40px;
+      text-align: center;
+      text-decoration: none;
+      width: 40px;
+      position: relative
+    }
+
+    .large[_nghost-sc11] {
+      width: 50px
+    }
+
+    [_nghost-sc11]:focus {
+      outline: 0 !important;
+      box-shadow: 0 0 3px 1px #0085eb !important;
+      transition: box-shadow 125ms ease-in-out
+    }
+
+    [_nghost-sc11]:active {
+      outline: 0 !important;
+      box-shadow: none !important
+    }
+
+    [disabled][_nghost-sc11] {
+      cursor: initial;
+      pointer-events: none;
+      opacity: .3
+    }
+
+    .show-background.selected[_nghost-sc11] {
+      background-color: #11163e;
+      transition: .25s ease-in-out
+    }
+
+    .show-background.selected[_nghost-sc11]:hover {
+      background-color: #19a5a2
+    }
+
+    .show-background.selected[_nghost-sc11]:active,
+    .show-background.selected[_nghost-sc11]:focus {
+      background-color: #11163e
+    }
+
+    i[_ngcontent-sc11] {
+      line-height: 40px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: .25s ease-in-out;
+      width: 100%
+    }
+
+    .normal[_ngcontent-sc11] {
+      color: #171d52
+    }
+
+    [_nghost-sc11]:hover>.normal[_ngcontent-sc11] {
+      color: #19a5a2
+    }
+
+    .selected[_nghost-sc11]>.normal[_ngcontent-sc11],
+    [_nghost-sc11]:active>.normal[_ngcontent-sc11] {
+      opacity: 0
+    }
+
+    .filled[_ngcontent-sc11] {
+      color: #11163e;
+      opacity: 0
+    }
+
+    .selected[_nghost-sc11]>.filled[_ngcontent-sc11],
+    [_nghost-sc11]:active>.filled[_ngcontent-sc11] {
+      opacity: 1
+    }
+
+    .show-background.selected[_nghost-sc11]>.filled[_ngcontent-sc11] {
+      color: #fff
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc12] {
+      display: flex;
+      align-items: center;
+    }
+
+    [_nghost-sc12] .phone[_ngcontent-sc12] {
+      margin-right: -9px;
+    }
+
+    [_nghost-sc12] .tablet[_ngcontent-sc12] {
+      margin-left: -5px;
+      margin-right: -6px;
+    }
+
+    [_nghost-sc12] .desktop[_ngcontent-sc12] {
+      margin-left: -1px;
+      margin-right: -2px;
+    }
+
+    [_nghost-sc12] .all-devices[_ngcontent-sc12] {
+      margin-left: -1px;
+    }
+
+    [_nghost-sc12] .spd[_ngcontent-sc12] {
+      color: #171D52;
+      padding: 0 4px;
+      transition: color 0.125s ease-in-out;
+    }
+
+    [_nghost-sc12] .spd[_ngcontent-sc12]:not(.active) {
+      cursor: pointer;
+    }
+
+    [_nghost-sc12] .spd[_ngcontent-sc12]:not(.active):hover {
+      color: #19A5A2;
+    }
+
+    [_nghost-sc12] .divider[_ngcontent-sc12] {
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAABCAYAAAHSsXx/AAAAAXNSR0IArs4c6QAAAB9JREFUCB1j3Lx5838GogFMNTE0I0yRr68vI8gGavEBa7ssw7BVCM0AAAAASUVORK5CYII=") no-repeat;
+      width: 44px;
+      height: 1px;
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc13] {
+      transition: width .25s ease-in-out;
+      display: block;
+      flex-shrink: 0;
+      overflow-y: auto;
+      width: 300px
+    }
+
+    @media (min-width:992px) {
+      .hide[_nghost-sc13] {
+        transition: width .25s ease-in-out, visibility .25s linear;
+        visibility: hidden;
+        width: 0 !important
+      }
+    }
+
+    @media (max-width:991px) {
+      [_nghost-sc13]:not(.show) {
+        transition: width .25s ease-in-out, visibility .25s linear;
+        visibility: hidden;
+        width: 0 !important
+      }
+    }
+  </style>
+  <style ng-transition="hrz">
+    .node-content[_ngcontent-sc14]:hover .context-menu-button[_ngcontent-sc14],
+    .node-content.ng-spd-tree-selected[_ngcontent-sc14] .context-menu-button[_ngcontent-sc14] {
+      display: initial;
+    }
+
+    .node-content[_ngcontent-sc14]:hover .item-icon-normal[_ngcontent-sc14],
+    .node-content.ng-spd-tree-selected[_ngcontent-sc14] .item-icon-normal[_ngcontent-sc14] {
+      display: none;
+    }
+
+    .node-content[_ngcontent-sc14]:hover .item-icon-filled[_ngcontent-sc14],
+    .node-content.ng-spd-tree-selected[_ngcontent-sc14] .item-icon-filled[_ngcontent-sc14] {
+      display: initial;
+    }
+
+    [_nghost-sc14] {
+      display: block;
+      min-height: 100%;
+    }
+
+    .node-content[_ngcontent-sc14] {
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      outline: none;
+      position: relative;
+    }
+
+    .node-content[_ngcontent-sc14] .ng-spd-tree-toggle[_ngcontent-sc14] {
+      padding-left: 10px;
+      padding-right: 2px;
+    }
+
+    .node-content[_ngcontent-sc14] .item-icon-normal[_ngcontent-sc14],
+    .node-content[_ngcontent-sc14] .item-icon-filled[_ngcontent-sc14] {
+      margin-right: 4px;
+    }
+
+    .node-content[_ngcontent-sc14] .item-icon-filled[_ngcontent-sc14] {
+      display: none;
+    }
+
+    .node-content[_ngcontent-sc14] .text[_ngcontent-sc14] {
+      flex: 1;
+      outline: none;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .node-content[_ngcontent-sc14] .text[_ngcontent-sc14]:after {
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+
+
+      background: linear-gradient(to right, rgba(247, 247, 247, 0) 0%, #f7f7f7 100%);
+
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00f7f7f7', endColorstr='#f7f7f7', GradientType=1);
+    }
+
+    .node-content[_ngcontent-sc14] .text[contenteditable='true'][_ngcontent-sc14] {
+      background-color: #ffffff;
+    }
+
+    .node-content[_ngcontent-sc14] .context-menu-button[_ngcontent-sc14] {
+      display: none;
+      margin-right: 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .node-content[_ngcontent-sc14]:hover {
+      background-color: #f0f0f0;
+      color: #19A5A2;
+    }
+
+    .node-content[_ngcontent-sc14]:hover .text[_ngcontent-sc14]:after {
+      background: linear-gradient(to left, #f0f0f0 45px, rgba(240, 240, 240, 0) 100%);
+      width: 85px;
+    }
+
+    .node-content.ng-spd-tree-selected[_ngcontent-sc14] {
+      background-color: #E0F5FC;
+      color: #11163e;
+      font-weight: 600;
+    }
+
+    .node-content.ng-spd-tree-selected[_ngcontent-sc14] .text[_ngcontent-sc14]:after {
+      background: linear-gradient(to left, #e0f5fc 45px, rgba(224, 245, 252, 0) 100%);
+      width: 85px;
+    }
+
+    .align-center[_ngcontent-sc14] {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc17] {
+      font-size: 12px;
+      font-family: "Open Sans", sans-serif;
+      color: #2b2b2b
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc15] {
+      left: calc(50% - 175px);
+      max-height: 300px;
+      overflow: hidden;
+      position: absolute;
+      top: 10px;
+      width: 350px;
+      z-index: 1030
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc21] {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    app-device-toolbar[_ngcontent-sc21] {
+      flex-shrink: 0;
+      margin-top: -67px;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    app-device-toolbar.transition[_ngcontent-sc21] {
+      transition: margin-top 0.5s ease-in-out;
+    }
+
+    app-device-toolbar.show[_ngcontent-sc21] {
+      margin-top: 25px;
+    }
+
+    #editor-placeholder[_ngcontent-sc21] {
+      flex-basis: 0;
+      flex-grow: 1;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc22] {
+      align-items: center;
+      background-color: #ffffff;
+      border: 1px solid #969696;
+      border-radius: 5px;
+      box-shadow: 0px 0px 50px 0px rgba(43, 43, 43, 0.225);
+      display: flex;
+      height: 40px;
+      padding: 0 10px;
+    }
+
+    [_nghost-sc22] .divider[_ngcontent-sc22] {
+      border-left: 1px solid #969696;
+      margin: 0 10px;
+    }
+
+    [_nghost-sc22] .rotate[_ngcontent-sc22] {
+      cursor: pointer;
+    }
+
+    [_nghost-sc22] .label[_ngcontent-sc22] {
+      color: #171D52;
+      font-weight: 600;
+    }
+
+    [_nghost-sc22] .icon[_ngcontent-sc22] {
+      margin-left: 5px;
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc23] {
+      display: flex;
+      padding: 20px;
+    }
+
+    button[_ngcontent-sc23] {
+      flex-grow: 1;
+      margin-right: 20px;
+    }
+
+    button[_ngcontent-sc23]:last-child {
+      margin-right: 0;
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc24] {
+      font-weight: 400;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 1px solid #171d52;
+      border-radius: 5px;
+      color: #171d52;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Open Sans", sans-serif;
+      height: 40px;
+      padding: 0 20px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: none;
+      transition: 125ms ease-in-out
+    }
+
+    .primary[_nghost-sc24] {
+      background-color: #171d52;
+      border-color: #171d52;
+      color: #fff
+    }
+
+    .primary[_nghost-sc24]:hover {
+      background-color: #19a5a2;
+      color: #fff
+    }
+
+    .primary[_nghost-sc24]:active {
+      background-color: #11163e;
+      border-color: #11163e
+    }
+
+    [_nghost-sc24]:hover {
+      border-color: #19a5a2;
+      color: #19a5a2
+    }
+
+    [_nghost-sc24]:active {
+      background-color: #11163e;
+      border-color: #11163e;
+      color: #fff
+    }
+
+    [disabled][_nghost-sc24] {
+      cursor: initial;
+      pointer-events: none;
+      opacity: .3
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc25] {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header[_ngcontent-sc25] {
+      align-items: center;
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #969696;
+      display: flex;
+      flex: 0 0 50px;
+      padding: 0 20px;
+    }
+
+    .header[_ngcontent-sc25] h4[_ngcontent-sc25] {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .content[_ngcontent-sc25] {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    app-placeholder-details[_ngcontent-sc25],
+    app-rendering-details[_ngcontent-sc25],
+    app-rich-text-editor[_ngcontent-sc25],
+    app-image-field[_ngcontent-sc25] {
+      display: block;
+      margin-bottom: 20px;
+    }
+  </style>
+  <style ng-transition="hrz">
+    h4[_ngcontent-sc30] {
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 10px 0 5px;
+    }
+
+    h4[_ngcontent-sc30]:first-child {
+      margin-top: 0;
+    }
+
+    button[_ngcontent-sc30] {
+      width: 100%;
+    }
+
+    button.action-button[_ngcontent-sc30] {
+      margin-top: 10px;
+    }
+
+    hr[_ngcontent-sc30] {
+      border: 0;
+      border-top: 1px solid #969696;
+      margin: 20px 0;
+    }
+
+    p[_ngcontent-sc30] {
+      margin: 0;
+    }
+
+    ng-spd-inline-notification[_ngcontent-sc30] {
+      margin-top: 10px;
+    }
+
+    ng-spd-slide-in-panel-content[_ngcontent-sc30] {
+      padding: 20px;
+    }
+
+    ng-spd-slide-in-panel[_ngcontent-sc30] {
+      border-left: 1px solid #969696;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      top: 0;
+      right: 0;
+    }
+
+    .margin-bottom[_ngcontent-sc30] {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+  </style>
+  <style ng-transition="hrz">
+    h4[_ngcontent-sc31] {
+      margin-top: 0;
+    }
+
+    hr[_ngcontent-sc31] {
+      border: 0;
+      border-top: 1px solid #969696;
+      margin: 10px 0 0;
+    }
+  </style>
+  <style ng-transition="hrz">
+    h4[_ngcontent-sc39] {
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 10px 0 5px;
+    }
+
+    p[_ngcontent-sc39] {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0;
+    }
+  </style>
+  <style ng-transition="hrz">
+    ng-spd-saved-indicator[_ngcontent-sc5] {
+      color: #11163e;
+    }
+
+    
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc6] {
+      white-space: nowrap;
+    }
+  </style>
+  <style ng-transition="hrz">
+    @-webkit-keyframes spin {
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    [_nghost-sc40] {
+      align-items: center;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      width: 40px
+    }
+
+    .spinner[_ngcontent-sc40] {
+      -webkit-animation: 1.5s linear infinite spin;
+      animation: 1.5s linear infinite spin
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc35] {
+      align-items: center;
+      background-color: #e3e3e3;
+      border: 1px solid #969696;
+      border-radius: 5px;
+      box-sizing: border-box;
+      display: flex;
+      min-height: 50px;
+      padding: 0 20px;
+      width: 100%
+    }
+
+    .dismissable[_nghost-sc35] {
+      background-color: #fff
+    }
+
+    [_nghost-sc35] i[_ngcontent-sc35] {
+      align-self: flex-start;
+      margin-right: 20px;
+      margin-top: 10px
+    }
+
+    [_nghost-sc35] button[_ngcontent-sc35] {
+      align-self: flex-start;
+      margin-left: 20px;
+      margin-top: 10px
+    }
+
+    [_nghost-sc35] .text[_ngcontent-sc35] {
+      flex: 1;
+      margin: 10px 0
+    }
+  </style>
+  <style ng-transition="hrz">
+    .ng-spd-tree-selected[_nghost-sc20] {
+      font-weight: 600;
+      font-size: 1rem;
+      background-color: #e0f5fc;
+      color: #11163e
+    }
+  </style>
+  <style ng-transition="hrz">
+    [_nghost-sc18] {
+      background: 0 0;
+      border: 0;
+      padding-right: 10px
+    }
+  </style>
+  <style class="flex-layout-ssr">
+    @media all {}
+  </style>
+</head>
+
+<body>
+  <div id="editor-workspace">
+    <div class="editor-chrome">
+      <div class="editor-content-wrapper">
+        <div id='root'></div>
+        <div id="hrz-idx-ldr">
+          <div class="hrz-idx-ldr-dot" id="hrz-idx-ldr-d1"></div>
+          <div class="hrz-idx-ldr-dot" id="hrz-idx-ldr-d2"></div>
+          <div class="hrz-idx-ldr-dot" id="hrz-idx-ldr-d3"></div>
+          <div class="hrz-idx-ldr-dot" id="hrz-idx-ldr-d4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-root class="ng-tns-c0-0 ng-trigger ng-trigger-appTransition">
+    <app-pages _nghost-sc1="" class="ng-tns-c1-1 ng-trigger ng-trigger-fullscreen ng-star-inserted" style="">
+      <ng-spd-page _ngcontent-sc1="" class="desktop" _nghost-sc2="">
+          <div _ngcontent-sc2="" class="page-app">
+              <ng-spd-split-pane _ngcontent-sc1="" _nghost-sc8=""
+                class="ng-tns-c1-1 ng-trigger ng-trigger-lhsRouterTransition" style="width:300px;">
+                <app-left-hand-side _ngcontent-sc1="" _nghost-sc9="" class="ng-tns-c1-1">
+                  <div _ngcontent-sc9="" class="header"> 
+                      <h1>Left page title</h1>
+                  </div>
+                  <div _ngcontent-sc9="" class="content">
+                      <h1>left page content</h1>
+                  </div>
+                </app-left-hand-side>
+                <app-editor-lhs _nghost-sc23="" class="ng-star-inserted" style="">
+                  <button _ngcontent-sc23="" ngspdbutton=""
+                    queryparamshandling="preserve" skiplocationchange="" _nghost-sc24="" tabindex="0" class="">
+                    Action 1</button>
+                    <button _ngcontent-sc23="" ngspdbutton="" queryparamshandling="preserve"
+                    skiplocationchange="" _nghost-sc24="" tabindex="0" class="">Action 2</button>
+                  </app-editor-lhs>
+                <div _ngcontent-sc8="" class="pane-divider"></div>
+                <!---->
+              </ng-spd-split-pane>
+              <main _ngcontent-sc2="" class="page-main">
+                <ng-spd-top-bar _ngcontent-sc1="" _nghost-sc10="" class="ng-tns-c1-1">
+                  
+                  <div _ngcontent-sc10="" class="top-bar-center">
+                      <h1>top bar center</h1>
+                  </div>
+                  <div _ngcontent-sc10="" class="top-bar-right">
+                      <h1>To right bar</h1>
+                  </div>
+                </ng-spd-top-bar>
+                <div _ngcontent-sc1="" class="router-animation-wrapper ng-tns-c1-1 ng-trigger ng-trigger-routerTransition"
+                  style="">
+                  <app-notifications _ngcontent-sc1="" class="ng-tns-c1-1">
+                    <ng-spd-timed-notification _nghost-sc15="">
+                      <!---->
+                    </ng-spd-timed-notification>
+                  </app-notifications>
+                  <app-editor _nghost-sc21="" class="ng-star-inserted" style="">
+                    <h1>Editor</h1>
+                  </app-editor>
+                </div>
+              </main>
+              <ng-spd-page-pane _ngcontent-sc1="" _nghost-sc13="" class="ng-tns-c1-1">
+                <app-editor-rhs _nghost-sc25="" class="ng-star-inserted" style="">
+                  <div _ngcontent-sc25="" class="header">
+                    <h4 _ngcontent-sc25="">
+                        <h1>editor selected title</h1>
+                    </h4>
+                  </div>
+                  <div _ngcontent-sc25="" class="content">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    <app-workflow _ngcontent-sc25="" _nghost-sc30="" class="ng-tns-c30-2">
+                        <h1>workflow</h1>
+                    </app-workflow>
+                    <app-context-item-details _ngcontent-sc25="" _nghost-sc31="">
+                        <h1>Details section</h1>
+                    </app-context-item-details>
+                  </div>
+                </app-editor-rhs>
+              </ng-spd-page-pane>
+            </div>
+        
+      </ng-spd-page>
+    </app-pages>
+  </app-root>
+
+  <script type="text/javascript">
+    (function configureEditorWorkspace() {
+      editorWorkspaceApp.init();
+    })();
+  </script>
+</body>
+
 </html>
