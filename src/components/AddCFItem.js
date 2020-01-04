@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {FaPlus} from 'react-icons/fa';
+  import {FaPlus} from 'react-icons/fa';
 
 export default class AddCFItem extends Component {
 
