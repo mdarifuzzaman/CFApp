@@ -11,7 +11,10 @@
   <link rel="stylesheet" href="%PUBLIC_URL%/horizon.css" />
   <script type="text/javascript" src="%PUBLIC_URL%/editor.js"></script>
   <link rel="stylesheet" href="%PUBLIC_URL%/horizon-3.css" />
-
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Case Management System</title>
 
@@ -1012,7 +1015,7 @@
   <div id="editor-workspace">
     <div class="editor-chrome">
       <div class="editor-content-wrapper">
-        <div id='root'></div>
+        
         <div id="hrz-idx-ldr">
           <div class="hrz-idx-ldr-dot" id="hrz-idx-ldr-d1"></div>
           <div class="hrz-idx-ldr-dot" id="hrz-idx-ldr-d2"></div>
@@ -1026,23 +1029,34 @@
   <app-root class="ng-tns-c0-0 ng-trigger ng-trigger-appTransition">
     <app-pages _nghost-sc1="" class="ng-tns-c1-1 ng-trigger ng-trigger-fullscreen ng-star-inserted" style="">
       <ng-spd-page _ngcontent-sc1="" class="desktop" _nghost-sc2="">
+        <ng-spd-page-header _ngcontent-hrz-c1="" _nghost-hrz-c3="" class="ng-tns-c1-3">
+          <ng-spd-header _ngcontent-hrz-c1="" _nghost-hrz-c4="" class="ng-tns-c1-3">
+            <div> 
+              <button _ngcontent-sc23="" ngspdbutton=""
+              queryparamshandling="preserve" skiplocationchange="" _nghost-sc24="" tabindex="0" class="">Matter </button>
+              <button _ngcontent-sc23="" ngspdbutton=""
+              queryparamshandling="preserve" skiplocationchange="" _nghost-sc24="" tabindex="0" class="">Task </button>
+            </div>
+          </ng-spd-header>
+        </ng-spd-page-header>
+
           <div _ngcontent-sc2="" class="page-app">
               <ng-spd-split-pane _ngcontent-sc1="" _nghost-sc8=""
                 class="ng-tns-c1-1 ng-trigger ng-trigger-lhsRouterTransition" style="width:300px;">
                 <app-left-hand-side _ngcontent-sc1="" _nghost-sc9="" class="ng-tns-c1-1">
                   <div _ngcontent-sc9="" class="header"> 
-                      <h1>Left page title</h1>
+                     <h4>Matters</h4> 
                   </div>
                   <div _ngcontent-sc9="" class="content">
-                      <h1>left page content</h1>
+                      <div id='matters'></div>
                   </div>
                 </app-left-hand-side>
                 <app-editor-lhs _nghost-sc23="" class="ng-star-inserted" style="">
-                  <button _ngcontent-sc23="" ngspdbutton=""
-                    queryparamshandling="preserve" skiplocationchange="" _nghost-sc24="" tabindex="0" class="">
-                    Action 1</button>
-                    <button _ngcontent-sc23="" ngspdbutton="" queryparamshandling="preserve"
-                    skiplocationchange="" _nghost-sc24="" tabindex="0" class="">Action 2</button>
+                  <a _ngcontent-sc23="" ngspdbutton=""
+                    queryparamshandling="preserve" skiplocationchange="" _nghost-sc24="" tabindex="0" class="" href="/createMatter">
+                    Create Matter</a> &nbsp;
+                    <a _ngcontent-sc23="" ngspdbutton="" queryparamshandling="preserve"
+                    skiplocationchange="" _nghost-sc24="" tabindex="0" class="">Edit Matter</a>
                   </app-editor-lhs>
                 <div _ngcontent-sc8="" class="pane-divider"></div>
                 <!---->
@@ -1051,10 +1065,10 @@
                 <ng-spd-top-bar _ngcontent-sc1="" _nghost-sc10="" class="ng-tns-c1-1">
                   
                   <div _ngcontent-sc10="" class="top-bar-center">
-                      <h1>top bar center</h1>
+                      <h4>Matter Details</h4>
                   </div>
                   <div _ngcontent-sc10="" class="top-bar-right">
-                      <h1>To right bar</h1>
+                      <h4>Library</h4>
                   </div>
                 </ng-spd-top-bar>
                 <div _ngcontent-sc1="" class="router-animation-wrapper ng-tns-c1-1 ng-trigger ng-trigger-routerTransition"
@@ -1065,7 +1079,7 @@
                     </ng-spd-timed-notification>
                   </app-notifications>
                   <app-editor _nghost-sc21="" class="ng-star-inserted" style="">
-                    <h1>Editor</h1>
+                      <div id='root'></div>
                   </app-editor>
                 </div>
               </main>
@@ -1073,7 +1087,7 @@
                 <app-editor-rhs _nghost-sc25="" class="ng-star-inserted" style="">
                   <div _ngcontent-sc25="" class="header">
                     <h4 _ngcontent-sc25="">
-                        <h1>editor selected title</h1>
+                        <h4>Title - Preview</h4>
                     </h4>
                   </div>
                   <div _ngcontent-sc25="" class="content">
@@ -1083,10 +1097,10 @@
                     <!---->
                     <!---->
                     <app-workflow _ngcontent-sc25="" _nghost-sc30="" class="ng-tns-c30-2">
-                        <h1>workflow</h1>
+                        <h1>File/Email/Html</h1>
                     </app-workflow>
                     <app-context-item-details _ngcontent-sc25="" _nghost-sc31="">
-                        <h1>Details section</h1>
+                        <h1>Preview</h1>
                     </app-context-item-details>
                   </div>
                 </app-editor-rhs>
@@ -1101,6 +1115,13 @@
     (function configureEditorWorkspace() {
       editorWorkspaceApp.init();
     })();
+    $(document).ready(function(){
+      console.log("document loaded");
+      var matters = ' <div style="margin-left: 10px;"> <a href="/Matter/1">Matter1 </a> </div> ' +
+                    '  <div style="margin-left: 10px;"> <a href="/Matter/2">Matter2 </a> </div> ' + 
+                    '  <div  style="margin-left: 10px;"> <a href="/Matter/3">Matter3 </a> </div> ';
+      $('#matters').append(matters);
+    });
   </script>
 </body>
 
